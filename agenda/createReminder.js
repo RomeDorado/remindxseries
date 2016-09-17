@@ -11,13 +11,8 @@ module.exports = (agenda, f) => {
         const {first_name, timezone} = profile;
         // if datetime - timezonediff is 0 or minus then add
         const UTC_Offset = moment.utc(datetime).subtract(timezone, 'hours');
-        if(UTC_Offset.diff(new Date()) <= 0) {
-          // Use datetime as is
-          const scheduleTime = datetime;
-        } else {
-          // Use offset datetime
-          const scheduleTime = UTC_Offset.toDate();
-        }
+        let timeDiff = UTC_Offset.diff(new Date());
+        let scheduleTime = timeDiff <= 0 ? datetime : UTC_Offset.toDate();
         //const UTC_Offset_Date = moment.utc(datetime).subtract(timezone, 'hours').toDate();
 
         // Setup the job
