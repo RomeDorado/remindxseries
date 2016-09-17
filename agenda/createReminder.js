@@ -10,16 +10,18 @@ module.exports = (agenda, f) => {
       .then(profile => {
         const {first_name, timezone} = profile;
         // if datetime - timezonediff is 0 or minus then add
-        const UTC_Offset_Date = moment.utc(datetime).subtract(timezone, 'hours').toDate();
-        console.log(`Timezone: ${timezone}`);
-        console.log(`Server : ${new Date()}`);
-        console.log(`Calculated Date: ${UTC_Offset_Date}`);
+        const UTC_Offset = moment.utc(datetime).subtract(timezone, 'hours');
+        if(UTC_Offset.diff(new Date()) <= 0) {
+          // Use datetime as is
+          const scheduleTime = datetime;
+        } else {
+          // Use offset datetime
+          const scheduleTime = UTC_Offset.toDate();
+        }
+        //const UTC_Offset_Date = moment.utc(datetime).subtract(timezone, 'hours').toDate();
 
-        const tempNew = moment.utc(datetime).subtract(timezone, 'hours');
-        const tempDiff = tempNew.diff(moment.utc());
-        console.log(`TempDIff : ${tempDiff}`);
         // Setup the job
-        agenda.schedule(UTC_Offset_Date, 'reminder', {
+        agenda.schedule(scheduleTime, 'reminder', {
           fbid,
           first_name,
           task
