@@ -14,7 +14,7 @@ module.exports = (agenda, f) => {
         let timeDiff = UTC_Offset.diff(new Date());
         let scheduleTime = timeDiff <= 0 ? datetime : UTC_Offset.toDate();
         //const UTC_Offset_Date = moment.utc(datetime).subtract(timezone, 'hours').toDate();
-
+        console.log(`Schedule Time: ${scheduleTime}`);
         // Setup the job
         agenda.schedule(scheduleTime, 'reminder', {
           fbid,
