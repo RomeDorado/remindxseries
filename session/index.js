@@ -3,7 +3,7 @@ const {findById} = require('../utils');
 const crypto = require('crypto');
 const sessionStore = new Map();
 const session = {
-  init: id => {
+  init(id) {
     // find a session object by facebook id
     let sessionId = findById(id, sessionStore);
     if(sessionId) {
@@ -21,15 +21,15 @@ const session = {
       return newSessionId;
     }
   },
-  get: sessionId => {
+  get(sessionId) {
     return sessionStore.get(sessionId);
   },
-  update: (sessionId, context) => {
+  update(sessionId, context) {
     let obj = sessionStore.get(sessionId);
     obj.context = context;
     return sessionStore.set(sessionId, obj);
   },
-  delete: sessionId => {
+  delete(sessionId) {
     return sessionStore.delete(sessionId);
   }
 }

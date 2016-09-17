@@ -9,10 +9,15 @@ module.exports = (agenda, f) => {
     f.getProfile(fbid)
       .then(profile => {
         const {first_name, timezone} = profile;
+        // if datetime - timezonediff is 0 or minus then add
         const UTC_Offset_Date = moment.utc(datetime).subtract(timezone, 'hours').toDate();
         console.log(`Timezone: ${timezone}`);
         console.log(`Server : ${new Date()}`);
         console.log(`Calculated Date: ${UTC_Offset_Date}`);
+
+        const tempNew = moment.utc(datetime).subtract(timezone, 'hours');
+        const tempDiff = tempNew.to(moment.utc());
+        console.log(`TempDIff : ${tempDiff}`);
         // Setup the job
         agenda.schedule(UTC_Offset_Date, 'reminder', {
           fbid,
