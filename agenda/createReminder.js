@@ -12,7 +12,7 @@ module.exports = (agenda, f) => {
         // if datetime - timezonediff is 0 or minus then add
         const UTC_Offset = moment.utc(datetime).subtract(timezone, 'hours');
         let timeDiff = UTC_Offset.diff(moment.utc());
-        let scheduleTime = timeDiff <= 0 ? datetime : UTC_Offset.toDate();
+        let scheduleTime = (timeDiff <= 0 ? moment.utc(datetime) : UTC_Offset).toDate();
         //const UTC_Offset_Date = moment.utc(datetime).subtract(timezone, 'hours').toDate();
         console.log(`Schedule Time: ${scheduleTime}`);
         console.log(`Server Time: ${new Date()}`);
