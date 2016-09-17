@@ -16,7 +16,7 @@ module.exports = (agenda, f) => {
         console.log(`Calculated Date: ${UTC_Offset_Date}`);
 
         const tempNew = moment.utc(datetime).subtract(timezone, 'hours');
-        const tempDiff = tempNew.to(moment.utc());
+        const tempDiff = tempNew.diff(moment.utc());
         console.log(`TempDIff : ${tempDiff}`);
         // Setup the job
         agenda.schedule(UTC_Offset_Date, 'reminder', {
