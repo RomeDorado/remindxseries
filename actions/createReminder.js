@@ -13,6 +13,7 @@ const createReminder = (session, agenda) => {
       } else {
         delete context.missingTime;
         context.datetime = datetime;
+        console.log(`Setting Context DATETIME : ${context.datetime}`);
       }
 
       if(!task && !context.task) {
@@ -20,6 +21,7 @@ const createReminder = (session, agenda) => {
       } else {
         delete context.missingTask;
         context.task = task;
+        console.log(`Setting context TASK: ${context.task}`);
       }
 
       if(context.datetime && context.task) {
