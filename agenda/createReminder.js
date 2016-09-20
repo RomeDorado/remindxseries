@@ -19,6 +19,8 @@ module.exports = (agenda, f) => {
         const timeDiff = UTC_Offset.diff(moment.utc());
         // If timeDiff is 0 or below, then use UTC_datetime or else use UTC_Offset. also convert to date.
         const scheduleTime = (timeDiff <= 0 ? UTC_datetime : UTC_Offset).toDate();
+        console.log(`Schedule Time: ${scheduleTime}`);
+        console.log(`Server Time: ${new Date()}`);
         // Setup the job
         agenda.schedule(scheduleTime, 'reminder', {
           fbid,
