@@ -9,7 +9,7 @@ module.exports = (agenda, f) => {
     f.getProfile(fbid)
       .then(profile => {
         const {first_name, timezone} = profile;
-
+        console.log(`timezone : ${timezone}`);
         // Parsing datetime as UTC with Moment
         const UTC_datetime = moment.utc(datetime);
         // Calculating the timezone offset datetime

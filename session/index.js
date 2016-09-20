@@ -22,7 +22,6 @@ const session = {
     }
   },
   get(sessionId) {
-    console.log(sessionStore.get(sessionId).context);
     return sessionStore.get(sessionId);
   },
   update(sessionId, context) {
