@@ -8,14 +8,14 @@ const createReminder = (session, agenda) => {
       let datetime = fetchEntity(entities, 'datetime');
 
       // Update context with task and time
-      if(!datetime) {
+      if(!datetime && !context.datetime) {
         context.missingTime = true;
       } else {
         delete context.missingTime;
         context.datetime = datetime;
       }
 
-      if(!task) {
+      if(!task && !context.task) {
         context.missingTask = true;
       } else {
         delete context.missingTask;
