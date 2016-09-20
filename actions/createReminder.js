@@ -20,7 +20,7 @@ const createReminder = (session, agenda) => {
       } else {
         context.missingTime = true;
       }
-      
+
       if(context.datetime && context.task) {
         delete context.missingTime;
         delete context.missingTask;
@@ -31,7 +31,7 @@ const createReminder = (session, agenda) => {
         // Call Agenda to set a reminder
         agenda.now('createReminder', {
           fbid,
-          datetime,
+          datetime: context.datetime,
           task: context.task
         });
       }
