@@ -24,13 +24,14 @@ const createReminder = (session, agenda) => {
 
       if(context.datetime && context.task) {
         context.jobDone = true;
+        console.log(`Task: ${contex.task} at ${context.datetime}`);
         // Fetch fbid of the user
         let {fbid} = session.get(sessionId);
         // Call Agenda to set a reminder
         agenda.now('createReminder', {
           fbid,
           datetime,
-          task: context.task || task
+          task: context.task
         });
       }
       // if(!datetime) {
