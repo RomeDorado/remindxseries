@@ -9,11 +9,20 @@ const createReminder = (session, agenda) => {
 
       // Update context with task and time
       if(!datetime) {
-        context.task = task;
         context.missingTime = true;
-        delete context.jobDone;
       } else {
         delete context.missingTime;
+        context.datetime = datetime;
+      }
+
+      if(!task) {
+        context.missingTask = true;
+      } else {
+        delete context.missingTask;
+        context.task = task;
+      }
+
+      if(context.datetime && context.task) {
         context.jobDone = true;
         // Fetch fbid of the user
         let {fbid} = session.get(sessionId);
@@ -24,6 +33,22 @@ const createReminder = (session, agenda) => {
           task: context.task || task
         });
       }
+      // if(!datetime) {
+      //   context.task = task;
+      //   context.missingTime = true;
+      //   delete context.jobDone;
+      // } else {
+      //   delete context.missingTime;
+      //   context.jobDone = true;
+      //   // Fetch fbid of the user
+      //   let {fbid} = session.get(sessionId);
+      //   // Call Agenda to set a reminder
+      //   agenda.now('createReminder', {
+      //     fbid,
+      //     datetime,
+      //     task: context.task || task
+      //   });
+      // }
 
       // Resolve with the updated context
       return resolve(context);
