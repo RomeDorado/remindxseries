@@ -7,12 +7,11 @@ module.exports = (agenda, f) => {
       name: 'reminder',
       _id: new ObjectID(id)
     }, (error, numRemoved) => {
-      if(numRemoved > 0) {
-        f.txt(fbid, "Alright. I've canceled the reminder.");
+      if(!error) {
+        f.txt(fbid, (numRemoved > 0 : "Alright. I've canceled the reminder." : "I've already canceled this reminder. Don't worry, it won't bother you. :)"));
       } else {
-        f.txt(fbid, "I've already removed this reminder for you! :)");
+        f.txt(fbid, "Uh Oh! Something's not right with our servers. Could you try canceling this reminder again?");
       }
-
     });
   });
 }
