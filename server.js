@@ -57,8 +57,8 @@ agenda.on('ready', () => {
 						id
 					});
 			}
-			console.log((message && message.text) || (postback && postback.payload.includes('menu')));
-			if(message.text || (postback && postback.payload.includes('menu'))) {
+		
+			if((message && message.text) || (postback && postback.payload.includes('menu'))) {
 				// Process the message here
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
