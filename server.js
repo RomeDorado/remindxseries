@@ -44,7 +44,7 @@ agenda.on('ready', () => {
 				postback,
 				message
 			} = msg;
-			console.log(message);
+			console.log(msg);
 			if(postback && !postback.payload.includes("menu")) {
 				console.log("Reached here");
 					const {
