@@ -46,9 +46,8 @@ agenda.on('ready', () => {
 			} = msg;
 
 			if(postback) {
-				if(postback.payload === "menu") {
-					console.log(postback);
-					f.txt(sender, postback.title);
+				if(postback.payload.includes("menu")) {
+					f.txt(sender, postback.payload.split(":")[1]);
 				} else {
 					const {
 						schedule,
@@ -89,7 +88,7 @@ f.showPersistent([
 	{
 		type: "postback",
 		title: "Show my reminders",
-		payload: "menu"
+		payload: "menu:Show my reminders"
 	}
 ]);
 
