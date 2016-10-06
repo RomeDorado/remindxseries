@@ -45,28 +45,24 @@ agenda.on('ready', () => {
 				message
 			} = msg;
 
-			if(postback) {
-				if(postback.payload.includes("menu")) {
-					f.txt(sender, postback.payload.split(":")[1]);
-				} else {
+			if(postback && !postback.payload.includes("menu")) {
 					const {
 						schedule,
 						fbid,
 						id
 					} = JSON.parse(postback.payload);
 
-
 					agenda.now(schedule, {
 						fbid,
 						id
 					});
-				}
 			}
 
-			if(message.text) {
+			if(message.text || (postback && postback.payload.includes("menu"))) {
 				// Process the message here
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
+				let messageTxt = message.text || postback.payload.split(":")[1]
 				// Run WIT Actions (Converse API)
 				wit.runActions(sessionId, message.text, context)
 					.then(ctx => {
