@@ -5,7 +5,7 @@ module.exports = (session, f) => {
     return new Promise((resolve, reject) => {
       let {fbid} = session.get(sessionId);
       f.quick(fbid, {
-        text: "",
+        text: "Hey there! Do you want to be reminded of something?",
         buttons: [
           {
             content_type: "text",
