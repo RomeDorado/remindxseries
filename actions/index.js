@@ -10,10 +10,18 @@ module.exports = (session, f, agenda) => {
   const actions = {
     send(request, response) {
       const {sessionId, context, entities} = request;
-      const {text} = response;
+      const {text, quickreplies} = response;
       return new Promise((resolve, reject) => {
         let {fbid} = session.get(sessionId);
-        f.txt(fbid, text);
+        // f.txt(fbid, text);
+        if(quickreplies) {
+          f.quick(fbid, {
+            text,
+            buttons: quickreplies
+          });
+        } else {
+          f.txt(fbid, text);
+        }
         return resolve();
       });
     },
