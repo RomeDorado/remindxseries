@@ -47,6 +47,7 @@ agenda.on('ready', () => {
 
 			if(postback) {
 				if(postback.payload === "menu") {
+					console.log(postback);
 					f.txt(sender, postback.title);
 				} else {
 					const {
