@@ -44,9 +44,8 @@ agenda.on('ready', () => {
 				postback,
 				message
 			} = msg;
-			console.log(msg);
+
 			if(postback && !postback.payload.includes("menu")) {
-				console.log("Reached here");
 					const {
 						schedule,
 						fbid,
@@ -58,8 +57,8 @@ agenda.on('ready', () => {
 						id
 					});
 			}
-
-			if(message.text || (postback && postback.payload.includes("menu"))) {
+			console.log((message && message.text) || (postback && postback.payload.includes('menu')));
+			if(message.text || (postback && postback.payload.includes('menu'))) {
 				// Process the message here
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
