@@ -46,16 +46,21 @@ agenda.on('ready', () => {
 			} = msg;
 
 			if(postback) {
-				const {
-					schedule,
-					fbid,
-					id
-				} = JSON.parse(postback.payload);
+				if(postback.payload === null) {
+					f.txt(sender, postback.title);
+				} else {
+					const {
+						schedule,
+						fbid,
+						id
+					} = JSON.parse(postback.payload);
 
-				agenda.now(schedule, {
-					fbid,
-					id
-				});
+
+					agenda.now(schedule, {
+						fbid,
+						id
+					});
+				}
 			}
 
 			if(message.text) {
