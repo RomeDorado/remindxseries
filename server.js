@@ -46,7 +46,7 @@ agenda.on('ready', () => {
 			} = msg;
 
 			if(postback) {
-				if(postback.payload === null) {
+				if(postback.payload === "menu") {
 					f.txt(sender, postback.title);
 				} else {
 					const {
@@ -88,7 +88,7 @@ f.showPersistent([
 	{
 		type: "postback",
 		title: "Show my reminders",
-		payload: "null"
+		payload: "menu"
 	}
 ]);
 
