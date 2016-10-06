@@ -32,6 +32,13 @@ const wit = new Wit({
 // Register the webhooks
 server.get('/', (req, res, next) => {
 	f.registerHook(req, res);
+	f.showPersistent([
+		{
+			type: "postback",
+			title: "My Reminders",
+			payload: "Show my reminders"
+		}
+	]);
 	return next();
 });
 
