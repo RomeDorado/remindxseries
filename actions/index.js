@@ -13,30 +13,13 @@ module.exports = (session, f, agenda) => {
       const {text, quickreplies} = response;
       return new Promise((resolve, reject) => {
         let {fbid} = session.get(sessionId);
-        // f.txt(fbid, text);
-        if(quickreplies) {
-          let buttons = quickreplies.map(title => {
-            return {
-              title,
-              content_type: "text",
-              payload: "null"
-            }
-          });
-
-          f.quick(fbid, {
-            text,
-            buttons
-          });
-        } else {
-          f.txt(fbid, text);
-        }
+        f.txt(fbid, text);
         return resolve();
       });
     },
     createReminder,
     showReminders,
-    endConversation,
-    showQuickReplies
+    endConversation
   }
 
   return actions;
