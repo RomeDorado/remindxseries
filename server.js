@@ -82,8 +82,8 @@ agenda.on('ready', () => {
 f.showPersistent([
 	{
 		type: "postback",
-		title: "My Reminders",
-		payload: "Show my reminders"
+		title: "Show my reminders",
+		payload: "null"
 	}
 ]);
 
