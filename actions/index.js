@@ -2,9 +2,11 @@
 const endConversation = require('./endConversation');
 const create = require('./createReminder');
 const show = require('./showReminders');
+const quickReplies = require('./showQuickReplies');
 module.exports = (session, f, agenda) => {
   let createReminder = create(session, agenda);
   let showReminders = show(session, agenda);
+  let showQuickReplies = quickReplies(session, f);
   const actions = {
     send(request, response) {
       const {sessionId, context, entities} = request;
@@ -17,7 +19,8 @@ module.exports = (session, f, agenda) => {
     },
     createReminder,
     showReminders,
-    endConversation
+    endConversation,
+    showQuickReplies
   }
 
   return actions;
