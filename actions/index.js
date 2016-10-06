@@ -15,6 +15,7 @@ module.exports = (session, f, agenda) => {
         let {fbid} = session.get(sessionId);
         // f.txt(fbid, text);
         if(quickreplies) {
+          console.log(quickreplies);
           f.quick(fbid, {
             text,
             buttons: quickreplies
