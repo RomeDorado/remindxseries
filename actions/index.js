@@ -15,12 +15,12 @@ module.exports = (session, f, agenda) => {
         let {fbid} = session.get(sessionId);
         // f.txt(fbid, text);
         if(quickreplies) {
-          let buttons = quickreplies.map(btn => {
-            title: btn,
-            content_type: "text",
-            payload: "null"
+          let buttons = quickreplies.map(title => {
+            "title": title,
+            "content_type": "text",
+            "payload": "null"
           });
-          
+
           f.quick(fbid, {
             text,
             buttons
