@@ -2,15 +2,13 @@
 const endConversation = require('./endConversation');
 const create = require('./createReminder');
 const show = require('./showReminders');
-const quickReplies = require('./showQuickReplies');
 module.exports = (session, f, agenda) => {
   let createReminder = create(session, agenda);
   let showReminders = show(session, agenda);
-  let showQuickReplies = quickReplies(session, f);
   const actions = {
     send(request, response) {
       const {sessionId, context, entities} = request;
-      const {text, quickreplies} = response;
+      const {text} = response;
       return new Promise((resolve, reject) => {
         let {fbid} = session.get(sessionId);
         f.txt(fbid, text);
