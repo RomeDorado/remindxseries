@@ -46,6 +46,7 @@ agenda.on('ready', () => {
 			} = msg;
 
 			if(postback && !postback.payload.includes("menu")) {
+				console.log("Reached here");
 					const {
 						schedule,
 						fbid,
@@ -63,6 +64,7 @@ agenda.on('ready', () => {
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
 				let messageTxt = postback ? postback.payload.split(":")[1] : message.text;
+				console.log(`MESSAGE : ${messageTxt}`);
 				// Run WIT Actions (Converse API)
 				wit.runActions(sessionId, messageTxt, context)
 					.then(ctx => {
