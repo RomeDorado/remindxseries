@@ -62,8 +62,7 @@ agenda.on('ready', () => {
 				// Process the message here
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
-				let messageTxt = message.text || postback.payload.split(":")[1];
-				console.log(messageTxt);
+				let messageTxt = postback ? postback.payload.split(":")[1] : message.text;
 				// Run WIT Actions (Converse API)
 				wit.runActions(sessionId, messageTxt, context)
 					.then(ctx => {
