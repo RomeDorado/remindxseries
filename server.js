@@ -64,7 +64,7 @@ agenda.on('ready', () => {
 				let {context} = session.get(sessionId);
 				let messageTxt = message.text || postback.payload.split(":")[1]
 				// Run WIT Actions (Converse API)
-				wit.runActions(sessionId, message.text, context)
+				wit.runActions(sessionId, messageTxt, context)
 					.then(ctx => {
 						// Delete session if the conversation is over
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
