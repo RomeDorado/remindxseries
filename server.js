@@ -85,6 +85,16 @@ agenda.on('ready', () => {
 					}
 				})
 					.catch(error => console.log(`Error: ${error}`));
+
+				wit.message(message.text, {})
+				.then(omdb)
+				.then(response => {
+					f.txt(sender, response.text);
+					if(response.image) {
+						f.img(sender, response.image);
+					}
+				})
+				.catch(error => console.log(error));
 			}
 
 		});
