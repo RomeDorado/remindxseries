@@ -36,4 +36,8 @@ const getInfo = data => {
   });
 }
 
-module.exports = getInfo;
+module.exports = {
+  getInfo,
+  inquiry
+
+}

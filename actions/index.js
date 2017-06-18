@@ -1,5 +1,6 @@
 'use strict';
 const endConversation = require('./endConversation');
+const inquiry = require('./inquiry');
 const create = require('./createReminder');
 const show = require('./showReminders');
 module.exports = (session, f, agenda) => {
