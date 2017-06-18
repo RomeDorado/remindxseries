@@ -32,7 +32,8 @@ module.exports = (session, f, agenda) => {
     },
     createReminder,
     showReminders,
-    endConversation
+    endConversation,
+    inquiry
   }
 
   return actions;
