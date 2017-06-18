@@ -1,8 +1,9 @@
 'use strict';
-
 const findById = (fbid, sessionStore) => {
   for(let [key, value] of sessionStore) {
-    return value.fbid === fbid ? key : null;
+    if(value.fbid === fbid) {
+      return key;
+    }
   }
 }
 
