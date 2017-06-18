@@ -3,7 +3,7 @@ const request = require('request');
 const {fetchEntity} = require('../utils');
 const createResponse = require('../utils');
 const config = require('../config');
-const inquiry = ({sessionId, context, entities}) = data => {
+const inquiry = data => {
   /*
   let intent = data.entities.intent && data.entities.intent[0].value || 'tvInfo';
   let tvshow = data.entities.tvshow && data.entities.tvshow[0].value || null;
