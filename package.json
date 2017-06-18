@@ -14,6 +14,7 @@
     "agenda": "0.8.1",
     "node-wit": "4.0.0",
     "request": "2.74.0",
+    "omdb-api-client": "^2.0.1",
     "restify": "4.1.1"
   }
 }

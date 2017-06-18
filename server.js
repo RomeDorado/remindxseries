@@ -22,6 +22,12 @@ const session = require('./session');
 // WIT Actions
 const actions = require('./actions')(session, f, agenda);
 
+
+//OMDB
+const omdb = require('./omdb');
+const createResponse = require('./utils')
+
+
 // WIT.AI
 const Wit = require('node-wit').Wit;
 const wit = new Wit({
@@ -34,6 +40,8 @@ server.get('/', (req, res, next) => {
 	f.registerHook(req, res);
 	return next();
 });
+
+
 
 agenda.on('ready', () => {
 	// Handle incoming
@@ -69,6 +77,13 @@ agenda.on('ready', () => {
 						// Delete session if the conversation is over
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
 					})
+					.then(omdb)
+					.then(response => {
+					f.txt(sender, response.text);
+					if(response.image) {
+						f.img(sender, response.image);
+					}
+				})
 					.catch(error => console.log(`Error: ${error}`));
 			}
 
