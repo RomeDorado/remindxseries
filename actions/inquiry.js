@@ -20,7 +20,7 @@ const inquiry = ({sessionId, context, entities}) => {
           t: tvshow,
           plot: 'short',
           r: 'json',
-          apiKey: config.OMDB_API_KEY
+          apiKey: '270b7488'
         },
         method: 'GET'        
       }, (error, response, body) => {
