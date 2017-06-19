@@ -73,5 +73,6 @@ const createResponse = (intent, tvshow) => {
 
 module.exports = {
   findById,
-  fetchEntity
+  fetchEntity,
+  createResponse
 }
