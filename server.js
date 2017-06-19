@@ -79,17 +79,6 @@ agenda.on('ready', () => {
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
 					})
 				
-				.catch(error => console.log(`Error: ${error}`));
-
-				wit.message(message.text, {})
-				.then(omdb)
-				.then(response => {
-					f.txt(sender, response.text);
-					if(response.image) {
-						f.img(sender, response.image);
-					}
-				})
-				.catch(error => console.log(error));
 			}
 
 		});
