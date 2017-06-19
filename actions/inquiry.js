@@ -38,7 +38,7 @@ const inquiry = ({sessionId, context, entities}) => {
     } else {
       reject("Entities not found in inquiry!");
     }
-    return resolve(context);
+  //  return resolve(context);
   });
 }
 
