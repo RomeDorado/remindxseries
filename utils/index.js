@@ -20,7 +20,7 @@ const fetchEntity = (entities, entity) => {
     }
 }
 
-createResponse = (intent, tvshow) => {
+const createResponse = (intent, tvshow) => {
   if(tvshow.Response === 'True') {
     let {
       Title,
