@@ -26,7 +26,7 @@ const getInfo = data => {
       });
 
     } else {
-      reject("Entities not found!");
+      reject("Entities not found in omdb!");
     }
   });
 }
