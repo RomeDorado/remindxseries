@@ -43,4 +43,4 @@ const inquiry = ({sessionId, context, entities}) => {
 }
 
 module.exports = inquiry;
-module.exports.createResponse = createResponse;
+
