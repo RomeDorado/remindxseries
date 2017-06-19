@@ -25,6 +25,7 @@ const actions = require('./actions')(session, f, agenda);
 
 //OMDB
 const omdb = require('./omdb');
+const inquire = require('./actions/inquiry');
 const createResponse = require('./utils')
 
 
@@ -81,7 +82,7 @@ agenda.on('ready', () => {
 				.catch(error => console.log(`Error: ${error}`));
 
 				wit.message(message.text, {})
-				.then(omdb)
+				.then(inquire)
 				.then(response => {
 					f.txt(sender, response.text);
 					if(response.image) {
