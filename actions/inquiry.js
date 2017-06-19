@@ -11,7 +11,7 @@ const inquiry = ({sessionId, context, entities}) => {
   let intent = fetchEntity(entities, 'intent') || tvInfo;
   let tvshow = fetchEntity(entities, 'tvshow') || null;
   return new Promise((resolve, reject) => {
-    if(intent && tvshow) {
+    if(tvshow) {
       // Fetch data from OMDB
       request({
         uri: "https://www.omdbapi.com",
