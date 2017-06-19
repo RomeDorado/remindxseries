@@ -78,11 +78,11 @@ agenda.on('ready', () => {
 						// Delete session if the conversation is over
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
 					})
-					
+				
 				.catch(error => console.log(`Error: ${error}`));
 
 				wit.message(message.text, {})
-				.then(inquire)
+				.then(omdb)
 				.then(response => {
 					f.txt(sender, response.text);
 					if(response.image) {
