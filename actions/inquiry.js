@@ -9,7 +9,7 @@ const inquiry = ({sessionId, context, entities}) => {
   let tvshow = data.entities.tvshow && data.entities.tvshow[0].value || null;
   */
   let intent = fetchEntity(entities, 'intent') || tvInfo;
-  let tvshow = fetchEntity(entities, 'tvshow') || null;
+  let tvshow = fetchEntity(entities, 'tvshow') || "null is real";
   return new Promise((resolve, reject) => {
     if(tvshow) {
       // Fetch data from OMDB
