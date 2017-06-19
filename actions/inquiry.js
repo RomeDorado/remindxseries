@@ -22,11 +22,11 @@ const inquiry = ({sessionId, context, entities}) => {
           r: 'json',
           apiKey: config.OMDB_API_KEY
         },
-        method: 'GET'
+        method: 'GET'        
       }, (error, response, body) => {
-        console.log(request);
+        consle.log("body" + JSON.parse(body));
         if(!error && response.statusCode === 200) {
-          consle.log("body" + JSON.parse(body));
+          
           resolve(createResponse(intent, JSON.parse(body)));
           
         } else {
