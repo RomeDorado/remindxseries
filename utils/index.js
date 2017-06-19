@@ -20,6 +20,7 @@ const fetchEntity = (entities, entity) => {
     }
 }
 
+module.exports = (f) => {
 const createResponse = (intent, tvshow) => {
   if(tvshow.Response === 'True') {
     let {
@@ -72,7 +73,7 @@ const createResponse = (intent, tvshow) => {
     }
   }
 }
-
+}
 module.exports = {
   findById,
   fetchEntity,
