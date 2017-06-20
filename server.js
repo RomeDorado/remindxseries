@@ -68,11 +68,10 @@ agenda.on('ready', () => {
 						id
 					});
 			}
-			console.log(postback + "payload is");
+			console.log(JSON.parse(postback) + "payload is");
 			console.log(message + "payload is");
 
-			if((message && message.text) || (postback && postback.payload.includes("menu")) || 
-			(postback && postback.payload.includes("Greeting")) || (postback && postback.payload.equals("Greeting"))) {
+			if((message && message.text) || (postback && postback.payload.includes("menu"))) {
 
 				console.log(postback + "payload is");
 				// Process the message here
