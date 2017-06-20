@@ -82,20 +82,7 @@ agenda.on('ready', () => {
 					})				
 					
 					.catch(error => console.log(error));
-
-					
-			//WIT Message API
-			wit.message(message.text, {})
-				.then(inq)
-				.then(response => {
-					//console.log("thisis the response" + response);
-					f.txt(sender, response.text);
-					console.log(response.text + "<- ang response");
-					if(response.image) {
-						f.img(sender, response.image);
-					}
-				})
-				.catch(error => console.log(error));
+								
 				
 			}
 
