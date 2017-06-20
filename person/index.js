@@ -12,8 +12,9 @@ const createResponse = (intent, tvshow) => {
       Actors,
       Poster
     } = tvshow;
-
+console.log("napupunta sya dito" +intent);
     switch(intent) {
+    
       case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;        
         return {
