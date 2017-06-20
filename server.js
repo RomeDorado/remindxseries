@@ -68,8 +68,11 @@ agenda.on('ready', () => {
 						id
 					});
 			}
-
+			
+			console.log(postback.payload);
+			console.log(message.text);
 			if(postback.payload === "Greeting"){
+				console.log(postback.payload + "payload <--")
 				
 					f.txt(sender, "Ey bro welcome to remindme");
 			}
