@@ -1,6 +1,5 @@
 'use strict'
 
-
 const createResponse = (intent, tvshow) => {
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
@@ -16,7 +15,8 @@ const createResponse = (intent, tvshow) => {
     switch(intent) {
     
       case 'tvInfo' : {          
-        let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;        
+        let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;    
+        
         return {
           text: str,
           image: Poster
