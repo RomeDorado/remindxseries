@@ -3,6 +3,7 @@
 
 const createResponse = (intent, tvshow) => {
   if(tvshow.Response === 'True') {
+      console.log("napunta na siya sa create response");
     let {
       Title,
       Year,
