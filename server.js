@@ -77,15 +77,7 @@ agenda.on('ready', () => {
 					.then(ctx => {
 						// Delete session if the conversation is over
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
-					})
-					.then(omdb)
-					.then(response => {
-					//console.log("thisis the response" + response);
-					f.txt(sender, response.text);
-					if(response.image) {
-						f.img(sender, response.image);
-					}
-				})
+					})				
 					
 					.catch(error => console.log(error));
 				
