@@ -26,7 +26,7 @@ const actions = require('./actions')(session, f, agenda);
 //OMDB
 const omdb = require('./omdb');
 const inquire = require('./actions/inquiry');
-const createResponse = require('./utils')
+const createResponse = require('./person')
 
 
 // WIT.AI

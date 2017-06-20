@@ -1,7 +1,7 @@
 'use strict';
 const request = require('request');
 const {fetchEntity} = require('../utils');
-const createResponse = require('../utils');
+const createResponse = require('../person');
 const config = require('../config');
 const inquiry = ({sessionId, context, entities}) => {
   /*

@@ -1,6 +1,6 @@
 'use strict';
 const request = require('request');
-const createResponse = require('../utils');
+const createResponse = require('../person');
 const config = require('../config');
 const getInfo = data => {
   let intent = data.entities.intent && data.entities.intent[0].value || 'tvInfo';
