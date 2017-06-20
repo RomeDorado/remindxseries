@@ -68,14 +68,6 @@ agenda.on('ready', () => {
 						id
 					});
 			}
-			
-			console.log(postback.payload + "this is the payload");
-			console.log(message+ "this is the mesasge");
-			if(postback.payload === "Greeting"){
-				console.log(postback.payload + "payload <--")
-				
-					f.txt(sender, "Ey bro welcome to remindme");
-			}
 
 			if((message && message.text) || (postback && postback.payload.includes("menu"))) {
 				// Process the message here
@@ -83,7 +75,8 @@ agenda.on('ready', () => {
 				let {context} = session.get(sessionId);
 				let messageTxt = postback ? postback.payload.split(":")[1] : message.text;
 				// Run WIT Actions (Converse API)
-				wit.runActions(sessionId, messageTxt, context)				
+				wit.runActions(sessionId, messageTxt, context)
+				
 					.then(ctx => {
 						// Delete session if the conversation is over
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
