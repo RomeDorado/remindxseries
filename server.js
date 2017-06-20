@@ -49,21 +49,6 @@ server.get('/', (req, res, next) => {
 agenda.on('ready', () => {
 	// Handle incoming
 	server.post('/', (req, res, next) => {
-  // Make sure this is a page subscription
-  if (req.body.object == "page") {
-    // Iterate over each entry
-    // There may be multiple entries if batched
-    req.body.entry.forEach(function(entry) {
-      // Iterate over each messaging event
-      entry.messaging.forEach(function(event) {
-        if (event.postback) {
-          processPostback(event);
-        }
-      });
-    });
-
-    res.sendStatus(200);
-  }
 		f.incoming(req, res, msg => {
 			const {
 				sender,
@@ -83,17 +68,8 @@ agenda.on('ready', () => {
 						id
 					});
 			}
-
-			function processPostback(event) {
-  var senderId = event.sender.id;
-  var payload = event.postback.payload;
-
-  if (payload === "Greeting") {
-		f.text(sender, "Hello world!");
-	}
-}
 			console.log(postback + "payload is");
-			console.log(message + "message is");
+			console.log(message + "payload is");
 
 			if((message && message.text) || (postback && postback.payload.includes("menu")) || 
 			(postback && postback.payload.includes("Get"))) {
