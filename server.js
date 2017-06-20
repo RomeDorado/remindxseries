@@ -22,6 +22,8 @@ const session = require('./session');
 // WIT Actions
 const actions = require('./actions')(session, f, agenda);
 
+const inq = require('./actions/inquiry')
+
 
 //OMDB
 const omdb = require('./omdb');
@@ -84,7 +86,7 @@ agenda.on('ready', () => {
 					
 			//WIT Message API
 			wit.message(message.text, {})
-				.then(omdb)
+				.then(inq)
 				.then(response => {
 					//console.log("thisis the response" + response);
 					f.txt(sender, response.text);
