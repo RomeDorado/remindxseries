@@ -69,8 +69,8 @@ agenda.on('ready', () => {
 					});
 			}
 			
-			console.log(postback);
-			console.log(message);
+			console.log(postback.payload + "this is the payload");
+			console.log(message+ "this is the mesasge");
 			if(postback.payload === "Greeting"){
 				console.log(postback.payload + "payload <--")
 				
