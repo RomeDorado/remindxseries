@@ -90,6 +90,7 @@ agenda.on('ready', () => {
 				.then(response => {
 					//console.log("thisis the response" + response);
 					f.txt(sender, response.text);
+					console.log(response.text + "<- ang response");
 					if(response.image) {
 						f.img(sender, response.image);
 					}
