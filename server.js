@@ -68,6 +68,7 @@ agenda.on('ready', () => {
 						id
 					});
 			}
+			console.log(postback + "payload is");
 
 			if((message && message.text) || (postback && postback.payload.includes("menu")) || 
 			(postback && postback.payload.includes("Get"))) {
