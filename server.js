@@ -69,6 +69,11 @@ agenda.on('ready', () => {
 					});
 			}
 
+			if(postback.payload === "Greeting"){
+				
+					f.txt(sender, "Ey bro welcome to remindme");
+			}
+
 			if((message && message.text) || (postback && postback.payload.includes("menu"))) {
 				// Process the message here
 				let sessionId = session.init(sender);
