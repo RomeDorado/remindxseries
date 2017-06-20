@@ -1,5 +1,6 @@
 'use strict'
 
+
 const createResponse = (intent, tvshow) => {
   if(tvshow.Response === 'True') {
     let {
@@ -12,12 +13,13 @@ const createResponse = (intent, tvshow) => {
     } = tvshow;
 
     switch(intent) {
-      case 'tvInfo' : {
+      case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;
         return {
           text: str,
           image: Poster
-        }        
+        }      
+        
       }
 
       // case 'releaseYear' : {
