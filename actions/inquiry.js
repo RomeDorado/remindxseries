@@ -2,7 +2,6 @@
 const request = require('request');
 const {fetchEntity} = require('../utils');
 const FBeamer = require('../fbeamer');
-const f = new FBeamer('../config.FB');
 //const createResponse = require('../person');
 const config = require('../config');
 const inquiry = (session, f) => {
@@ -63,7 +62,7 @@ const createResponse = (sessionId, intent, tvshow) => {
       case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;    
         
-        f.txt(sessionId, "str");
+        FBeamer.txt(sessionId, "str");
         
       }
     }
