@@ -69,10 +69,9 @@ agenda.on('ready', () => {
 					});
 			}
 
-				var formattedMsg = message.text.toLowerCase().trim();
-				console.log(formattedMsg);
+				var formattedMsg = message.text.toLowerCase().trim();				
 				switch (formattedMsg) {
-				case "tell":
+				case "tell ":
 				console.log("this happened");
 				wit.message(message.text, {})
 				.then(omdb)
