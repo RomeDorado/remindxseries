@@ -70,8 +70,8 @@ agenda.on('ready', () => {
 			}
 
 				var formattedMsg = message.text.toLowerCase().trim();
-
-				 switch (formattedMsg) {
+				console.log(formattedMsg);
+				switch (formattedMsg) {
 				case "tell":
 				console.log("this happened");
 				wit.message(message.text, {})
