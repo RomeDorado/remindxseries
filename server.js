@@ -69,10 +69,10 @@ agenda.on('ready', () => {
 					});
 			}
 
-				var formattedMsg = message.text.toLowerCase().trim();				
-				switch (formattedMsg) {
-				case "tell ":
-				console.log("this happened");
+				var formattedMsg = message.text.toLowerCase().trim();
+
+				if(formattedMsg.match(/tell/g) == true){
+				
 				wit.message(message.text, {})
 				.then(omdb)
 				.then(response => {					
@@ -83,8 +83,8 @@ agenda.on('ready', () => {
 				})
 				.catch(error => console.log(error + "this is the error"));
 
-				break;
-				default:
+				}else{
+
                //else if((message && message.text) || (postback && postback.payload.includes("menu"))) {
 				// Process the message here
 				let sessionId = session.init(sender);
