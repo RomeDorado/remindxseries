@@ -1,6 +1,6 @@
 'use strict'
 const FBeamer = require('../fbeamer');
-const f = new FBeamer(config.FB);
+const f = new FBeamer('./config.FB');
 const createResponse = (intent, tvshow, sessionId) => {
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
