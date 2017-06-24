@@ -1,7 +1,7 @@
 'use strict'
-module.exports = (f) => {
+
 const createResponse = (intent, tvshow, sessionId) => {
-  
+module.exports = (f) => {  
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
     let {
