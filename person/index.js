@@ -58,6 +58,5 @@ const createResponse = (sender, tvshow) => {
     }
   }
 }
-
-}
 module.exports = createResponse;
+}
