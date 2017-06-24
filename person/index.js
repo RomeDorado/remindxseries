@@ -1,7 +1,6 @@
 'use strict'
 
 const createResponse = (intent, tvshow) => {
-  
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
     let {
@@ -13,14 +12,10 @@ const createResponse = (intent, tvshow) => {
       Poster
     } = tvshow;
 
- 
-
     switch(intent) {
     
       case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;    
-        
-
         
         return {
           text: str,
@@ -52,7 +47,6 @@ const createResponse = (intent, tvshow) => {
       //   }
       // }
     }
-
   } else {
     return {
       text: "I don't seem to understand your question!",
@@ -61,4 +55,4 @@ const createResponse = (intent, tvshow) => {
   }
 }
 
-//module.exports = createResponse;
+module.exports = createResponse;
