@@ -71,11 +71,11 @@ agenda.on('ready', () => {
 
 				var formattedMsg = message.text.toLowerCase().trim();
 
-				if((formattedMsg.match(/tell/g) || []).length > 0){
-				console.log(formattedMsg);							
+				if((formattedMsg.match(/tell/g) || []).length > 0){											
 				wit.message(formattedMsg, {})				
 				.then(omdb)
-				.then(response => {					
+				.then(response => {	
+					console.log(response);
 					f.txt(sender, response.text);
 					if(response.image) {
 						f.img(sender, response.image);
