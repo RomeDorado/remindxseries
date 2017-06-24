@@ -1,10 +1,11 @@
 'use strict';
 const request = require('request');
+const {fetchEntity} = require('../utils');
 const createResponse = require('../person');
 const config = require('../config');
 const getInfo = data => {
   let intent = fetchEntity(entities, 'intent') || "tvInfo";
-  let tvshow = fetchEntity(entities, 'tvshow') || null;
+  let tvshow = fetchEntity(entities, 'tvshow') || null; 
   return new Promise((resolve, reject) => {
     if(tvshow) {
       // Fetch data from OMDB
