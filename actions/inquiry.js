@@ -27,7 +27,7 @@ const inquiry = ({sessionId, context, entities}) => {
         console.log(response.statusCode);
         //console.log(JSON.parse(body));
         if(!error && response.statusCode === 200) {
-          console.log(JSON.stringify(context) + "thi sis the context");
+          
           resolve(createResponse(intent, JSON.parse(body)), context);
           
         } else {
@@ -38,7 +38,7 @@ const inquiry = ({sessionId, context, entities}) => {
     } else {
       reject("Entities not found in inquiry!");
     }
-    return resolve(context);
+    //return resolve(context);
   });
 }
 

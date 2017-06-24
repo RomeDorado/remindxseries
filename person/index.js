@@ -1,6 +1,6 @@
 'use strict'
 
-const createResponse = (intent, tvshow) => {
+const createResponse = (intent, tvshow, context) => {
   
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
@@ -19,14 +19,14 @@ const createResponse = (intent, tvshow) => {
       case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;   
         console.log(str);
-        return ({sessionId, context, entities}) => { 
+        //return ({sessionId, context, entities}) => { 
         return new Promise((resolve, reject) => {
         context.inquire = str;
         console.log(context + "This is context")
         return resolve(context);
     });
           
-        }      
+     //   }      
         
       }
 
