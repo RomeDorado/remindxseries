@@ -12,7 +12,7 @@ const createResponse = (intent, tvshow) => {
       Actors,
       Poster
     } = tvshow;
-    console.log(context)
+    
 
     switch(intent) {
     
@@ -21,7 +21,7 @@ const createResponse = (intent, tvshow) => {
         return ({sessionId, context, entities}) => { 
         return new Promise((resolve, reject) => {
         context.inquire = str;
-        
+        console.log(context)
         return resolve(context);
     });
           
