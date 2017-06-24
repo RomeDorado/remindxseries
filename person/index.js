@@ -1,5 +1,5 @@
 'use strict'
-module.exports = (f) => {
+
 const createResponse = (intent, tvshow) => {
   
   if(tvshow.Response === 'True') {
@@ -60,5 +60,5 @@ const createResponse = (intent, tvshow) => {
     }
   }
 }
-}
+
 //module.exports = createResponse;
