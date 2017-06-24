@@ -70,7 +70,7 @@ agenda.on('ready', () => {
 			}
 
 				if(message.text) {									
-				wit.message(formattedMsg, {})				
+				wit.message(message.text, {})				
 				.then(omdb)
 				.then(response => {						
 					f.txt(sender, response.text);
