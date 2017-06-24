@@ -1,5 +1,5 @@
 'use strict'
-
+module.exports = (agenda, f) => {
 const createResponse = (intent, tvshow, context) => {
   
   if(tvshow.Response === 'True') {
@@ -14,17 +14,42 @@ const createResponse = (intent, tvshow, context) => {
     } = tvshow;
     
 
+ send(request, response) {
+      const {sessionId, context, entities} = request;
+      const {text, quickreplies} = response;
+      return new Promise((resolve, reject) => {
+        let {fbid} = session.get(sessionId);
+        if(quickreplies) {
+          let buttons = quickreplies.map(title => {
+            return {
+              title,
+              content_type: "text",
+              payload: "null"
+            }
+          });
+
+          f.quick(fbid, {
+            text,
+            buttons
+          });
+        } else {
+          f.txt(fbid, text);
+        }
+        return resolve();
+      });
+    }
+
+
     switch(intent) {
     
       case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;   
         console.log(str);
         //return ({sessionId, context, entities}) => { 
-        return new Promise((resolve, reject) => {
-        context.inquiry = str;
-        console.log(context + "This is context")
-        return resolve(context);
-    });
+        //f.txt();
+
+
+
           
      //   }      
         
@@ -59,6 +84,6 @@ const createResponse = (intent, tvshow, context) => {
       image: null
     }
   }
+  }
 }
-
-module.exports = createResponse;
+//module.exports = createResponse;
