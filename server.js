@@ -73,7 +73,7 @@ agenda.on('ready', () => {
 
 				 switch (formattedMsg) {
 				case "tell":
-
+				console.log("this happened");
 				wit.message(message.text, {})
 				.then(omdb)
 				.then(response => {					
