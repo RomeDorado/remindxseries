@@ -78,7 +78,7 @@ agenda.on('ready', () => {
 				.then(response => {					
 					f.txt(sender, response.text);
 					if(response.image) {
-						f.img(sender, response.image + "ITO ATA YUNG NULL");
+						f.img(sender, response.image);
 					}
 				})
 				.catch(error => console.log(error + "this is the error"));
