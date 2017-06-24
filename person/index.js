@@ -1,6 +1,6 @@
 'use strict'
-module.exports = (agenda, f) => {
-const createResponse = (intent, tvshow, context) => {
+module.exports = (f) => {
+const createResponse = (intent, tvshow, sessionId) => {
   
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
@@ -23,7 +23,7 @@ const createResponse = (intent, tvshow, context) => {
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;   
         console.log(str);
         //return ({sessionId, context, entities}) => { 
-        //f.txt();
+        f.txt(sessionId, str);
 
 
 
