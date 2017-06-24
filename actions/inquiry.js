@@ -3,7 +3,6 @@ const request = require('request');
 const {fetchEntity} = require('../utils')
 //const createResponse = require('../person');
 const config = require('../config');
-
 const inquiry = (session, f) => {
   return ({sessionId, context, entities}) => {
   /*
@@ -30,7 +29,7 @@ const inquiry = (session, f) => {
         console.log(JSON.parse(body));
         if(!error && response.statusCode === 200) {
           
-          resolve(createResponse(session, intent, JSON.parse(body)));
+          resolve(createResponse(session, intent, JSON.parse(body)),f);
           
         } else {
           reject(error);
@@ -45,7 +44,7 @@ const inquiry = (session, f) => {
 }
 }
 
-const createResponse = (sessionId, intent, tvshow) => {
+const createResponse = (sessionId, intent, tvshow,f) => {
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
     let {
@@ -73,6 +72,6 @@ const createResponse = (sessionId, intent, tvshow) => {
     }
   }
 }
-}
 
+module.exports = inquiry;
 
