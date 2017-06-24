@@ -5,7 +5,6 @@ const {fetchEntity} = require('../utils')
 const config = require('../config');
 
 const inquiry = (session, f) => {
-  module.exports = (session, f, agenda) => {
   return ({sessionId, context, entities}) => {
   /*
   let intent = data.entities.intent && data.entities.intent[0].value || 'tvInfo';
