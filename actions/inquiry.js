@@ -1,6 +1,8 @@
 'use strict';
 const request = require('request');
 const {fetchEntity} = require('../utils');
+const FBeamer = require('../fbeamer');
+const f = new FBeamer('./config.FB');
 //const createResponse = require('../person');
 const config = require('../config');
 const inquiry = (session, f) => {
