@@ -1,10 +1,9 @@
 'use strict';
 const request = require('request');
-const {fetchEntity} = require('../utils')
-//const createResponse = require('../person');
+const {fetchEntity} = require('../utils');
+const createResponse = require('../person');
 const config = require('../config');
-const inquiry = (session, f) => {
-  return ({sessionId, context, entities}) => {
+const inquiry = ({sessionId, context, entities}) => {
   /*
   let intent = data.entities.intent && data.entities.intent[0].value || 'tvInfo';
   let tvshow = data.entities.tvshow && data.entities.tvshow[0].value || null;
@@ -29,7 +28,7 @@ const inquiry = (session, f) => {
         console.log(JSON.parse(body));
         if(!error && response.statusCode === 200) {
           
-          resolve(createResponse(session, intent, JSON.parse(body)),f);
+          resolve(createResponse(intent, JSON.parse(body)));
           
         } else {
           reject(error);
@@ -41,36 +40,6 @@ const inquiry = (session, f) => {
     }
     return resolve(context);
   });
-}
-}
-
-const createResponse = (sessionId, intent, tvshow,f) => {
-  if(tvshow.Response === 'True') {
-      console.log("napunta na siya sa create response");
-    let {
-      Title,
-      Year,
-      Plot,
-      Director,
-      Actors,
-      Poster
-    } = tvshow;
-
-    switch(intent) {
-    
-      case 'tvInfo' : {          
-        let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;    
-        
-        f.txt(sessionId, "str");
-        
-      }
-    }
-  } else {
-    return {
-      text: "I don't seem to understand your question!",
-      image: null
-    }
-  }
 }
 
 module.exports = inquiry;
