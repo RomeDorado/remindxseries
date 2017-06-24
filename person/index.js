@@ -1,6 +1,6 @@
 'use strict'
 
-const createResponse = (intent, tvshow) => {
+const createResponse = (intent, tvshow, context) => {
   
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
@@ -13,7 +13,7 @@ const createResponse = (intent, tvshow) => {
       Poster
     } = tvshow;
     
-
+console.log(context + "This is context")
     switch(intent) {
     
       case 'tvInfo' : {          
