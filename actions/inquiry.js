@@ -3,7 +3,8 @@ const request = require('request');
 const {fetchEntity} = require('../utils');
 const createResponse = require('../person');
 const config = require('../config');
-const inquiry = ({sessionId, context, entities}) => {
+const inquiry = (session, f) => {
+  return ({sessionId, context, entities}) => {
   /*
   let intent = data.entities.intent && data.entities.intent[0].value || 'tvInfo';
   let tvshow = data.entities.tvshow && data.entities.tvshow[0].value || null;
@@ -40,6 +41,7 @@ const inquiry = ({sessionId, context, entities}) => {
     }
     return resolve(context);
   });
+   }
 }
 
 module.exports = inquiry;
