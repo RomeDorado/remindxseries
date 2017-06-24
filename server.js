@@ -74,6 +74,7 @@ agenda.on('ready', () => {
 				if((formattedMsg.match(/tell/g) || []).length > 0){
 								
 				wit.message(formattedMsg, {})
+				console.log(formattedMsg);
 				.then(omdb)
 				.then(response => {					
 					f.txt(sender, response.text);
