@@ -1,7 +1,8 @@
 'use strict'
 const config = require('../config');
 const request = require('request');
-const createResponse = (intent, tvshow) => {
+module.exports = (f) => {
+const createResponse = (sender, tvshow) => {
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
     let {
@@ -16,13 +17,15 @@ const createResponse = (intent, tvshow) => {
     switch(intent) {
     
       case 'tvInfo' : {          
-        let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;    
+        let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;  
+
+        f.txt(sender, str);
         
-        return {
+      /*  return {
           text: str,
           image: Poster
         }      
-        
+      */  
       }
 
       // case 'releaseYear' : {
@@ -56,4 +59,5 @@ const createResponse = (intent, tvshow) => {
   }
 }
 
+}
 module.exports = createResponse;
