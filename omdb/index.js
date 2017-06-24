@@ -3,8 +3,8 @@ const request = require('request');
 const createResponse = require('../person');
 const config = require('../config');
 const getInfo = data => {
-  let intent = data.entities.intent && data.entities.intent[0].value || 'tvInfo';
-  let tvshow = data.entities.tvshow && data.entities.tvshow[0].value || null;
+  let intent = fetchEntity(entities, 'intent') || "tvInfo";
+  let tvshow = fetchEntity(entities, 'tvshow') || null;
   return new Promise((resolve, reject) => {
     if(tvshow) {
       // Fetch data from OMDB
