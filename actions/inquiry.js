@@ -31,7 +31,7 @@ const inquiry = (session, f) => {
         console.log(JSON.parse(body));
         if(!error && response.statusCode === 200) {
           
-          resolve(createResponse(intent, JSON.parse(body)));
+          resolve(createResponse(session, intent, JSON.parse(body)));
           
         } else {
           reject(error);
@@ -46,7 +46,7 @@ const inquiry = (session, f) => {
 }
 }
 
-const createResponse = (intent, tvshow) => {
+const createResponse = (sessionId, intent, tvshow) => {
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
     let {
