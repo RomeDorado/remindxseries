@@ -1,5 +1,6 @@
 'use strict'
-
+const config = require('../config');
+const request = require('request');
 const createResponse = (intent, tvshow) => {
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
