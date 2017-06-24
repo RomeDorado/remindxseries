@@ -77,12 +77,16 @@ agenda.on('ready', () => {
 				// Run WIT Actions (Converse API)
 				wit.runActions(sessionId, messageTxt, context)
 				
-					.then(ctx => {
-						// Delete session if the conversation is over
-						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
-					})				
+					.then(omdb)
+				.then(response => {					
+					f.txt(sender, response.text);
+					if(response.image) {
+						f.img(sender, response.image + "ITO ATA YUNG NULL");
+					}
+				})
+				.catch(error => console.log(error + "this is the error"));		
 					
-					.catch(error => console.log(error));
+				
 								
 				
 			}
