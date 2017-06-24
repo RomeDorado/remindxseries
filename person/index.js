@@ -1,7 +1,7 @@
 'use strict'
-
+const FBeamer = require('./fbeamer');
+const f = new FBeamer(config.FB);
 const createResponse = (intent, tvshow, sessionId) => {
-module.exports = (f) => {  
   if(tvshow.Response === 'True') {
       console.log("napunta na siya sa create response");
     let {
@@ -60,7 +60,6 @@ module.exports = (f) => {
       text: "I don't seem to understand your question!",
       image: null
     }
-  }
   }
 }
 //module.exports = createResponse;
