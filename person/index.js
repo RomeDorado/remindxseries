@@ -62,4 +62,4 @@ const createResponse = (intent, tvshow, sessionId) => {
     }
   }
 }
-//module.exports = createResponse;
+module.exports = createResponse;
