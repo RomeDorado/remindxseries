@@ -23,29 +23,6 @@ const createResponse = (intent, tvshow) => {
         }      
         
       }
-
-      // case 'releaseYear' : {
-      //   let str = `${Title} was released in ${Year}.`;
-      //   return {
-      //     text: str,
-      //     image: null
-      //   }
-      // }
-      //
-      case 'director' : {
-        let str = `${Title} (${Year}) was directed by ${Director}.`;
-        return {
-          text: str,
-          image: null
-        }
-      }
-      //
-      // default: {
-      //   return {
-      //     text: "Always at your service :)",
-      //     image: null
-      //   }
-      // }
     }
   } else {
     return {
