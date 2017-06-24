@@ -21,7 +21,7 @@ const createResponse = (intent, tvshow, context) => {
         console.log(str);
         //return ({sessionId, context, entities}) => { 
         return new Promise((resolve, reject) => {
-        context.inquire = str;
+        context.inquiry = str;
         console.log(context + "This is context")
         return resolve(context);
     });
