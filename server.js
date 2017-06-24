@@ -69,13 +69,10 @@ agenda.on('ready', () => {
 					});
 			}
 
-				var formattedMsg = message.text.toLowerCase().trim();
-
-				if((formattedMsg.match(/tell/g) || []).length > 0){											
+				if(message.text) {									
 				wit.message(formattedMsg, {})				
 				.then(omdb)
-				.then(response => {	
-					console.log(response);
+				.then(response => {						
 					f.txt(sender, response.text);
 					if(response.image) {
 						f.img(sender, response.image);
@@ -83,9 +80,9 @@ agenda.on('ready', () => {
 				})
 				.catch(error => console.log(error + "this is the error"));
 
-				}else{
+				}
 
-               //else if((message && message.text) || (postback && postback.payload.includes("menu"))) {
+               if((postback && postback.payload.includes("menu"))) {
 				// Process the message here
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
