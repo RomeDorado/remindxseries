@@ -63,7 +63,7 @@ const createResponse = (sessionId, intent, tvshow) => {
       case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;    
         
-        f.txt(sessionId, str);
+        f.txt(sessionId, "str");
         
       }
     }
