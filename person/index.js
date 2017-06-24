@@ -1,5 +1,5 @@
 'use strict'
-const FBeamer = require('./fbeamer');
+const FBeamer = require('../fbeamer');
 const f = new FBeamer(config.FB);
 const createResponse = (intent, tvshow, sessionId) => {
   if(tvshow.Response === 'True') {
