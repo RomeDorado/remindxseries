@@ -18,6 +18,7 @@ const createResponse = (intent, tvshow) => {
     
       case 'tvInfo' : {          
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;   
+        console.log(str);
         return ({sessionId, context, entities}) => { 
         return new Promise((resolve, reject) => {
         context.inquire = str;
