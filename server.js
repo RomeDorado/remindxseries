@@ -71,7 +71,7 @@ agenda.on('ready', () => {
 
 				var formattedMsg = message.text.toLowerCase().trim();
 
-				if(formattedMsg.search('tell') == true){
+				if((formattedMsg.match(/tell/g) || []).length > 0){
 				
 				wit.message(message.text, {})
 				.then(omdb)
