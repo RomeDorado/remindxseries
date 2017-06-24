@@ -172,7 +172,7 @@ class FBeamer {
 		}
 
 		this.sendMessage(obj)
-			.catch(error => console.log(error));
+			.catch(error => console.log(error + "this is the errror"));
 	}
 
 	// Send an image message

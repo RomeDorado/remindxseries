@@ -69,7 +69,24 @@ agenda.on('ready', () => {
 					});
 			}
 
-			if((message && message.text) || (postback && postback.payload.includes("menu"))) {
+				var formattedMsg = message.text.toLowerCase().trim();
+
+				 switch (formattedMsg) {
+				case "tell":
+
+				wit.message(message.text, {})
+				.then(omdb)
+				.then(response => {					
+					f.txt(sender, response.text);
+					if(response.image) {
+						f.img(sender, response.image + "ITO ATA YUNG NULL");
+					}
+				})
+				.catch(error => console.log(error + "this is the error"));
+
+				break;
+				default:
+               //else if((message && message.text) || (postback && postback.payload.includes("menu"))) {
 				// Process the message here
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
