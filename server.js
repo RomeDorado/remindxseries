@@ -69,20 +69,7 @@ agenda.on('ready', () => {
 					});
 			}
 
-				if(message.text) {									
-				wit.message(message.text, {})				
-				.then(omdb)
-				.then(response => {						
-					f.txt(sender, response.text);
-					if(response.image) {
-						f.img(sender, response.image);
-					}
-				})
-				.catch(error => console.log(error + "this is the error"));
-
-				}
-
-               if((postback && postback.payload.includes("menu"))) {
+			if((message && message.text) || (postback && postback.payload.includes("menu"))) {
 				// Process the message here
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
