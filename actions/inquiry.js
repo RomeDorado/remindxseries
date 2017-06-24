@@ -25,9 +25,9 @@ const inquiry = ({sessionId, context, entities}) => {
         method: 'GET'        
       }, (error, response, body) => {
         console.log(response.statusCode);
-        console.log(JSON.parse(body));
+        //console.log(JSON.parse(body));
         if(!error && response.statusCode === 200) {
-          
+          console.log(context + "thi sis the context");
           resolve(createResponse(intent, JSON.parse(body)), context);
           
         } else {
