@@ -13,15 +13,14 @@ const createResponse = (intent, tvshow) => {
     } = tvshow;
 
     switch(intent) {
-    
-      case 'tvInfo' : {          
-        let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;    
-        
+
+      case 'tvInfo' : {
+        let str = `${Title} (${Year}).`;
+        console.log(str);
         return {
           text: str,
           image: Poster
-        }      
-        
+        }
       }
 
       // case 'releaseYear' : {
