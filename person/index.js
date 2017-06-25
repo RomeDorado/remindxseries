@@ -1,7 +1,7 @@
 'use strict'
 
 const createResponse = (intent, tvshow) => {
-  if(tvshow.Response === 'True') {
+  if(tvshow) {
       console.log("napunta na siya sa create response");
     let {
       Title,
