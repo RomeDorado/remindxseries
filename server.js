@@ -83,14 +83,15 @@ agenda.on('ready', () => {
 
 					.catch(error => console.log(error));
 				wit.message(message.text, {})
-					.then(omdb)
-					.then(response => {		(console.log(response));
-						f.txt(sender, response.text);
-						if(response.image) {
-							f.img(sender, response.image);
-						}
-					})
-					.catch(error => console.log(error));
+				.then(omdb)
+				.then(response => {
+				//console.log("thisis the response" + response);
+				f.txt(sender, response.text);
+				if(response.image) {
+					f.img(sender, response.image);
+				}
+			})
+			.catch(error => console.log(error));
 
 			}
 
