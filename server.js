@@ -75,11 +75,10 @@ agenda.on('ready', () => {
 				 wit.message(message.text, {})
 				.then(omdb)
 				.then(response => {					
-					console.log(JSON.stringify(response) + "This is the response");
 					f.txt(sender, response.text);
 					if(response.image) {
 						f.img(sender, response.image);
-					}else 
+					}else
 					if (response.jsonfile){
 						//console.log(JSON.stringify(response.jsonfile));
 						f.card(sender, response.jsonfile)
