@@ -74,18 +74,6 @@ agenda.on('ready', () => {
 				let sessionId = session.init(sender);
 				let {context} = session.get(sessionId);
 				let messageTxt = postback ? postback.payload.split(":")[1] : message.text;
-
-				wit.message(message.text, {})
-				.then(omdb)
-				.then(response => {
-				//console.log("thisis the response" + response);
-				f.txt(sender, response.text);
-				if(response.image) {
-					f.img(sender, response.image);
-				}
-			})
-			.catch(error => console.log(error));
-
 				// Run WIT Actions (Converse API)
 				wit.runActions(sessionId, messageTxt, context)
 					.then(ctx => {
@@ -93,7 +81,16 @@ agenda.on('ready', () => {
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
 					})
 
-					.catch(error => console.log(error));
+					.catch(error => console.log(error))
+					.then(omdb)
+					.then(response => {(
+						console.log(response));
+						f.txt(sender, response.text);
+						if(response.image) {
+							f.img(sender, response.image);
+						}
+					})
+					.catch(error => console.log(error + "this is the error"))
 
 
 			}
