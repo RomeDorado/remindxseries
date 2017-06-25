@@ -82,7 +82,7 @@ agenda.on('ready', () => {
 					})
 
 					.catch(error => console.log(error))
-					.then(inquiry)
+					.then(omdb)
 					.then(response => {(
 						console.log(response));
 						f.txt(sender, response.text);
