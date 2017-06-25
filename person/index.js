@@ -21,7 +21,7 @@ const createResponse = (intent, tvshow) => {
           text: str,
           image: Poster
         }
-
+        console.log("Nareturn na niya");
       }
 
       // case 'releaseYear' : {
