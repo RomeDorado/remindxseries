@@ -12,11 +12,10 @@ const createResponse = (intent, tvshow) => {
       Poster
     } = tvshow;
 
-    console.log(Title);
-
     switch(intent) {
 
       case 'tvInfo' : {
+        console.log("Pumasok siya sa tamang intent");
         let str = `${Title} (${Year}). This film was directed by ${Director} and starred ${Actors}. ${Plot}`;
 
         return {
