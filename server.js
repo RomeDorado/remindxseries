@@ -80,8 +80,8 @@ agenda.on('ready', () => {
 						// Delete session if the conversation is over
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
 					})
-
-					.catch(error => console.log(error))
+					// 
+					// .catch(error => console.log(error))
 					.then(omdb)
 					.then(response => {		(console.log(response));
 						f.txt(sender, response.text);
