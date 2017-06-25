@@ -83,9 +83,8 @@ agenda.on('ready', () => {
 
 					.catch(error => console.log(error))
 					.then(omdb)
-					.then(response => {(
-						console.log(response));
-						f.txt(sender, response.text);
+					.then(response => {		(console.log(response));
+						//f.txt(sender, response.text);
 						if(response.image) {
 							f.img(sender, response.image);
 						}
