@@ -16,7 +16,7 @@ const createResponse = (intent, tvshow) => {
 
       case 'tvInfo' : {
         let str = `${Title} (${Year}).`;
-
+        console.log(str);
         return {
           text: str,
           image: Poster
