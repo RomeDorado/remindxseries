@@ -6,7 +6,7 @@ const show = require('./showReminders');
 module.exports = (session, f, agenda) => {
   let createReminder = create(session, agenda);
   let showReminders = show(session, agenda);  
-  let inquiry = inquire(session, f);  
+  let inquiry = inquire(session, agenda);  
   const actions = {
     send(request, response) {
       const {sessionId, context, entities} = request;
