@@ -85,6 +85,7 @@ agenda.on('ready', () => {
 					.then(omdb)
 					.then(response => {(
 						console.log(response));
+		        console.log("Nareturn na niya");
 						f.txt(sender, response.text);
 						if(response.image) {
 							f.img(sender, response.image);
