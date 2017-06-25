@@ -75,23 +75,23 @@ agenda.on('ready', () => {
 				let {context} = session.get(sessionId);
 				let messageTxt = postback ? postback.payload.split(":")[1] : message.text;
 				// Run WIT Actions (Converse API)
-				wit.runActions(sessionId, messageTxt, context)					
+				wit.runActions(sessionId, messageTxt, context)
 					.then(ctx => {
 						// Delete session if the conversation is over
 						ctx.jobDone ? session.delete(sessionId) : session.update(sessionId, ctx);
-					})				
-					
+					})
+
 					.catch(error => console.log(error))
 					.then(omdb)
-					.then(response => {		(console.log(response));			
-						//f.txt(sender, response.text);
+					.then(response => {		(console.log(response));
+						f.txt(sender, response.text);
 						if(response.image) {
 							f.img(sender, response.image);
 						}
 					})
 					.catch(error => console.log(error + "this is the error"))
-								
-				
+
+
 			}
 
 		});
