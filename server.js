@@ -4,7 +4,7 @@ const config = require('./config');
 const Restify = require('restify');
 const server = Restify.createServer({
 	name: 'remindO'
-});
+});//
 const PORT = process.env.PORT || 3000;
 
 // FBeamer
